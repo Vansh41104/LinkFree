@@ -8,7 +8,7 @@ import Link from "@components/Link";
 import { useTheme } from "next-themes";
 import { classNames } from "@services/utils/classNames";
 
-import { FaGithub } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
 import SunIcon from "@heroicons/react/20/solid/SunIcon";
 import MoonIcon from "@heroicons/react/20/solid/MoonIcon";
 import { BASE_GITHUB_PROJECT_URL } from "@constants/index";
@@ -85,21 +85,13 @@ export default function Navbar() {
       url: "/events",
     },
     {
-      name: "Map",
-      url: "/map",
-    },
-    {
       name: "Repos",
       url: "/repos",
     },
     {
-      name: "Discover",
-      url: "/discover",
+      name: "Pricing",
+      url: "/pricing",
     },
-    // {
-    //   name: "Pricing",
-    //   url: "/pricing",
-    // },
   ];
 
   const authControls = () => (
@@ -124,7 +116,7 @@ export default function Navbar() {
       {session && (
         <>
           <NavLink
-            item={{ name: "Account", url: "/account/statistics" }}
+            item={{ name: "Account", url: "/account/onboarding" }}
             setIsOpen={setIsOpen}
           />
           <NavLink
@@ -144,14 +136,14 @@ export default function Navbar() {
           "relative top-0 bg-primary-high dark:bg-primary-medium",
           session &&
             session.accountType === "premium" &&
-            "border-b-2 border-tertiary-medium"
+            "border-b-2 border-tertiary-medium",
         )}
       >
         <div className="z-30 w-full mx-auto px-4 sm:px-6 lg:px-8 relative t-0">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Link href="/">
+                <Link href="/" aria-label="BioDrop Home">
                   <LogoWide onClick={() => setIsOpen(false)} width={128} />
                 </Link>
               </div>
@@ -237,7 +229,7 @@ export default function Navbar() {
             isOpen
               ? "transform translate-y-0 opacity-100"
               : "transform -translate-y-96 opacity-0",
-            "md:hidden z-20 absolute t-0 bg-primary-medium transition-all duration-700 ease-in-out w-full"
+            "md:hidden dark:z-50 z-20 absolute t-0 bg-primary-medium transition-all duration-700 ease-in-out w-full",
           )}
           id="mobile-menu"
         >

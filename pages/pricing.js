@@ -3,7 +3,6 @@ import { CheckIcon, MinusIcon } from "@heroicons/react/20/solid";
 import { authOptions } from "./api/auth/[...nextauth]";
 import { getServerSession } from "next-auth/next";
 
-import { clientEnv } from "@config/schemas/clientSchema";
 import Page from "@components/Page";
 import PageHead from "@components/PageHead";
 import { classNames } from "@services/utils/classNames";
@@ -21,11 +20,11 @@ export async function getServerSideProps(context) {
   }
 
   return {
-    props: { user, clientEnv },
+    props: { user },
   };
 }
 
-export default function Premium({ user, clientEnv }) {
+export default function Premium({ user }) {
   const tiers = [
     {
       name: "Free",
@@ -49,7 +48,7 @@ export default function Premium({ user, clientEnv }) {
         },
         action: () => {
           if (user.isLoggedIn && user.accountType === "premium") {
-            return "/api/stripe"; //return clientEnv.STRIPE_MANAGE_PLAN_URL;
+            return "/api/stripe";
           }
           if (user.isLoggedIn && user.accountType === "free") {
             return "/pricing";
@@ -75,7 +74,7 @@ export default function Premium({ user, clientEnv }) {
       description:
         "Customise your Profile further to reach a greater audience.",
       mostPopular: true,
-      badge: "30 day FREE trial (NO credit card required)",
+      badge: "Free 30 day trial (NO credit card required)",
       button: {
         label: () => {
           if (user.isLoggedIn && user.accountType === "premium") {
@@ -90,7 +89,7 @@ export default function Premium({ user, clientEnv }) {
         },
         action: () => {
           if (user.isLoggedIn && user.accountType === "premium") {
-            return clientEnv.STRIPE_MANAGE_PLAN_URL;
+            return "/api/stripe";
           }
           if (user.isLoggedIn && user.accountType === "free") {
             return "/api/stripe";
@@ -185,6 +184,17 @@ export default function Premium({ user, clientEnv }) {
             "Make your Profile standout with a Premium badge on your Profile",
           tiers: { Free: false, Premium: true },
         },
+        {
+          name: "Removed Button",
+          description:
+            'Automatically removes the "Create your Profile" button from your Profile',
+          tiers: { Free: false, Premium: true },
+        },
+        {
+          name: "Custom Domain",
+          description: "Use your own domain for your Profile",
+          tiers: { Free: false, Premium: true },
+        },
       ],
     },
     {
@@ -216,7 +226,7 @@ export default function Premium({ user, clientEnv }) {
         {
           name: "Discover",
           description:
-            "See a list of all those BioDrop Profiles which have been recently updated",
+            "See a list of all those BioDrop Profiles which have been recently updated on the Search Page",
           tiers: { Free: true, Premium: true },
         },
         // {
@@ -296,10 +306,19 @@ export default function Premium({ user, clientEnv }) {
     },
   ];
 
-  const badge = (text) => (
-    <span className="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-primary-medium dark:text-primary-low ring-1 ring-inset ring-green-500 shadow-xl shadow-green-500/50 mb-4">
+  const badge = (
+    text,
+    classnames1 = "shadow-xl shadow-green-500/50",
+    classnames2 = "motion-safe:animate-ping",
+  ) => (
+    <span
+      className={classNames(
+        "inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-primary-medium dark:text-primary-low ring-1 ring-inset ring-green-500 mb-4",
+        classnames1,
+      )}
+    >
       <svg
-        className="h-1.5 w-1.5 fill-green-500 animate-ping"
+        className={classNames("h-1.5 w-1.5 fill-green-500", classnames2)}
         viewBox="0 0 6 6"
         aria-hidden="true"
       >
@@ -312,8 +331,8 @@ export default function Premium({ user, clientEnv }) {
   return (
     <>
       <PageHead
-        title="LinkFree Premium Features Pricing"
-        description="LinkFree is 100% Open Source and FREE, but we will have some paid Premium features in the future"
+        title="BioDrop Premium Features Pricing"
+        description="BioDrop is 100% Open Source and FREE, but we will have some paid Premium features in the future"
       />
       <Page>
         <h1 className="text-4xl mb-4 font-bold">Pricing</h1>
@@ -330,18 +349,16 @@ export default function Premium({ user, clientEnv }) {
                   tier.mostPopular
                     ? "rounded-xl bg-gray-400/5 ring-1 ring-inset ring-gray-200"
                     : "",
-                  "p-8"
+                  "p-8",
                 )}
               >
-                <div className="flex justify-between">
-                  <h3
-                    id={tier.id}
-                    className="text-sm font-semibold leading-6 text-gray-900"
-                  >
-                    {tier.name}
-                  </h3>
-                  {tier.badge && badge(tier.badge)}
-                </div>
+                <h3
+                  id={tier.id}
+                  className="text-sm font-semibold leading-6 text-gray-900"
+                >
+                  {tier.name}
+                </h3>
+                {tier.badge && badge(tier.badge)}
                 <p className="mt-2 flex items-baseline gap-x-1 text-gray-900 mb-2">
                   <span className="text-4xl font-bold text-primary-medium dark:text-primary-low">
                     {tier.priceMonthly}
@@ -353,7 +370,7 @@ export default function Premium({ user, clientEnv }) {
                 <p className="mb-4">{tier.description}</p>
                 <Button
                   primary={true}
-                  disable={tier.button.isDisabled()}
+                  disabled={tier.button.isDisabled()}
                   aria-describedby={tier.id}
                   href={tier.button.action()}
                   onClick={() => tier.button.onClick()}
@@ -387,7 +404,7 @@ export default function Premium({ user, clientEnv }) {
                                 ) : null}
                               </span>
                             </li>
-                          ) : null
+                          ) : null,
                         )}
                       </ul>
                     </li>
@@ -456,7 +473,7 @@ export default function Premium({ user, clientEnv }) {
                         </div>
                         <p className="mb-4">{tier.description}</p>
                         <Button
-                          disable={tier.button.isDisabled()}
+                          disabled={tier.button.isDisabled()}
                           primary={true}
                           href={tier.button.action()}
                           onClick={() => tier.button.onClick()}
@@ -474,7 +491,7 @@ export default function Premium({ user, clientEnv }) {
                           colSpan={4}
                           className={classNames(
                             sectionIdx === 0 ? "pt-8" : "pt-16",
-                            "pb-4 font-semibold leading-6 text-gray-900"
+                            "pb-4 font-semibold leading-6 text-gray-900",
                           )}
                         >
                           {section.name}

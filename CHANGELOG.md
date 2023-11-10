@@ -1,45 +1,45 @@
-# [2.15.0](https://github.com/EddieHubCommunity/BioDrop/compare/v2.14.0...v2.15.0) (2023-09-04)
+## [2.85.4](https://github.com/EddieHubCommunity/BioDrop/compare/v2.85.3...v2.85.4) (2023-11-10)
+
+
+### Bug Fixes
+
+* markdown mdx dependencies by major version ([#9753](https://github.com/EddieHubCommunity/BioDrop/issues/9753)) ([697e547](https://github.com/EddieHubCommunity/BioDrop/commit/697e547e80df8721e3c24d116186d06d84795c25))
+
+
+
+## [2.85.3](https://github.com/EddieHubCommunity/BioDrop/compare/v2.85.2...v2.85.3) (2023-11-10)
+
+
+### Bug Fixes
+
+* profile settings domain ([#9758](https://github.com/EddieHubCommunity/BioDrop/issues/9758)) ([17d43e6](https://github.com/EddieHubCommunity/BioDrop/commit/17d43e6fb0095d96599e47f99e3a82a7b1840e9f))
+
+
+
+## [2.85.2](https://github.com/EddieHubCommunity/BioDrop/compare/v2.85.1...v2.85.2) (2023-11-08)
+
+
+### Bug Fixes
+
+* check custom domain first ([#9747](https://github.com/EddieHubCommunity/BioDrop/issues/9747)) ([2ce09be](https://github.com/EddieHubCommunity/BioDrop/commit/2ce09be20aca037b40549719a76cdc5d612574e7))
+
+
+
+## [2.85.1](https://github.com/EddieHubCommunity/BioDrop/compare/v2.85.0...v2.85.1) (2023-11-08)
+
+
+### Bug Fixes
+
+* heading strucuture fails WCAG 2.2AA ([#9631](https://github.com/EddieHubCommunity/BioDrop/issues/9631)) ([#9719](https://github.com/EddieHubCommunity/BioDrop/issues/9719)) ([ba6ea4f](https://github.com/EddieHubCommunity/BioDrop/commit/ba6ea4f0b2676ef72eb1abb907f55a6d3d5f750d)), closes [#9581](https://github.com/EddieHubCommunity/BioDrop/issues/9581) [#9581](https://github.com/EddieHubCommunity/BioDrop/issues/9581)
+
+
+
+# [2.85.0](https://github.com/EddieHubCommunity/BioDrop/compare/v2.84.5...v2.85.0) (2023-11-08)
 
 
 ### Features
 
-* premium with stripe integration ([#8647](https://github.com/EddieHubCommunity/BioDrop/issues/8647)) ([36e2a88](https://github.com/EddieHubCommunity/BioDrop/commit/36e2a882f2155a769070e3acf49ffe58091b78e6)), closes [#8909](https://github.com/EddieHubCommunity/BioDrop/issues/8909)
-
-
-
-# [2.14.0](https://github.com/EddieHubCommunity/BioDrop/compare/v2.13.0...v2.14.0) (2023-09-04)
-
-
-### Features
-
-* user profile picture on manage testimonials ([#8938](https://github.com/EddieHubCommunity/BioDrop/issues/8938)) ([3bbb1b9](https://github.com/EddieHubCommunity/BioDrop/commit/3bbb1b9c76d81921c41e3bf5238f1b5f27c4b553))
-
-
-
-# [2.13.0](https://github.com/EddieHubCommunity/BioDrop/compare/v2.12.0...v2.13.0) (2023-09-02)
-
-
-### Features
-
-* blog and newsletter ([#8920](https://github.com/EddieHubCommunity/BioDrop/issues/8920)) ([80e026e](https://github.com/EddieHubCommunity/BioDrop/commit/80e026e4c7b349d0a5abbefa0fdc4e9a09693760))
-
-
-
-# [2.12.0](https://github.com/EddieHubCommunity/BioDrop/compare/v2.11.0...v2.12.0) (2023-09-02)
-
-
-### Features
-
-* minimum forks, stars criteria in repo main list ([#8915](https://github.com/EddieHubCommunity/BioDrop/issues/8915)) ([38cdb37](https://github.com/EddieHubCommunity/BioDrop/commit/38cdb37e9c39813a0a2e5d39c90c52be7f939696))
-
-
-
-# [2.11.0](https://github.com/EddieHubCommunity/BioDrop/compare/v2.10.5...v2.11.0) (2023-09-01)
-
-
-### Features
-
-* filter options for event section ([#8904](https://github.com/EddieHubCommunity/BioDrop/issues/8904)) ([978596e](https://github.com/EddieHubCommunity/BioDrop/commit/978596ed2e6e1c2e16415189891103cfa1182620))
+* custom domain ([#9436](https://github.com/EddieHubCommunity/BioDrop/issues/9436)) ([5418e2b](https://github.com/EddieHubCommunity/BioDrop/commit/5418e2ba9489d8d3143d4601a6535f511fd36546))
 
 
 
